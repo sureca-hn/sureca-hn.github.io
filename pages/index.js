@@ -65,7 +65,7 @@ export default function Home() {
         <Box sx={{ bgcolor: 'background.paper', py: 4}}>
           <Grid container maxWidth="xl" columns={1} direction="column" sx={{ alignItems: "center", justifyContent: "center" }}>
             <Grid item> 
-                <Image src="/nextjs-github-pages/images/svg/logo.svg" alt="Logo" width={400} height={100} style={{ alignItems: "center", justifyContent: "center" }}/>
+                <Image src="/images/svg/logo.svg" alt="Logo" width={400} height={100} style={{ alignItems: "center", justifyContent: "center" }}/>
             </Grid>
             <Grid item>
                 <Typography variant="h5" color="text.secondary" component="paragraph">
@@ -114,9 +114,9 @@ export default function Home() {
             <BrandCarousel
                 brands={
                     [
-                        { name: 'STIHL', logo: '/nextjs-github-pages/images/svg/stihl.svg?height=100&width=200' },
-                        { name: 'Bendix', logo: '/nextjs-github-pages/images/svg/bendix.svg?height=100&width=200' },
-                        { name: 'Makita', logo: '/nextjs-github-pages/images/svg/makita.svg?height=100&width=200' }
+                        { name: 'STIHL', logo: '/images/svg/stihl.svg?height=100&width=200' },
+                        { name: 'Bendix', logo: '/images/svg/bendix.svg?height=100&width=200' },
+                        { name: 'Makita', logo: '/images/svg/makita.svg?height=100&width=200' }
                     ]
                 }>
             </BrandCarousel>
