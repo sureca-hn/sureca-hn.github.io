@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Image from 'next/image'
+import Head from 'next/head'
 import { Typography, Container, Grid2 as Grid, Box, Card, CardContent, CardMedia, IconButton } from '@mui/material'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -60,6 +61,9 @@ function WhatsAppContact({ phoneNumber, message }) {
 export default function Home() {
   return (
     <Box sx={{ flexGrow: 1 }}>
+      <Head>
+        <title>SURECA</title>
+      </Head>
       <main>
         {/* Hero Section */}
         <Box sx={{ bgcolor: 'background.paper', py: 4}}>
