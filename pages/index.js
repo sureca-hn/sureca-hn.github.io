@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Image from 'next/image'
-import { AppBar, Toolbar, Typography, Button, Container, Grid2 as Grid, Box, Card, CardContent, CardMedia, SvgIcon, IconButton } from '@mui/material'
+import { Typography, Container, Grid2 as Grid, Box, Card, CardContent, CardMedia, IconButton } from '@mui/material'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { DirectionsCar, Build, Spa, WhatsApp as WhatsAppIcon } from '@mui/icons-material'
@@ -8,7 +8,7 @@ import { Fab, Tooltip, Zoom } from '@mui/material'
 
 function CategoryCard({ icon, title, description }) {
   return (
-    <Card>
+    <Card sx={{ borderRadius: 5, boxShadow: 3 }}>
       <CardContent>
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: "400px"}}>
           {icon}
@@ -69,7 +69,7 @@ export default function Home() {
             </Grid>
             <Grid item>
                 <Typography variant="h5" color="text.secondary" component="paragraph">
-                  Suplidora de equipo automotriz, industrial, y agricultura.
+                  Suplidora de equipo automotriz, industrial, y agrícola.
                 </Typography>
             </Grid>
           </Grid>
@@ -80,7 +80,7 @@ export default function Home() {
           <Typography component="h2" variant="h4" align="center" color="text.primary" gutterBottom>
             Nuestras Lineas
           </Typography>
-          <Grid container columns={3} spacing={4}>
+          <Grid container columns={3} spacing={4} sx={{ alignItems: "center", justifyContent: "center" }}>
             <Grid item xs={12} sm={4}>
               <CategoryCard
                 icon={<DirectionsCar fontSize="large" />}
@@ -116,7 +116,10 @@ export default function Home() {
                     [
                         { name: 'STIHL', logo: '/images/svg/stihl.svg?height=100&width=200' },
                         { name: 'Bendix', logo: '/images/svg/bendix.svg?height=100&width=200' },
-                        { name: 'Makita', logo: '/images/svg/makita.svg?height=100&width=200' }
+                        { name: 'Makita', logo: '/images/svg/makita.svg?height=100&width=200' },
+                        { name: 'Payen', logo: '/images/svg/payen.svg?height=100&width=200' },
+                        { name: 'Koyo', logo: '/images/svg/koyo.svg?height=100&width=200' },
+                        { name: 'H. Paulin', logo: '/images/svg/paulin.svg?height=100&width=200' },
                     ]
                 }>
             </BrandCarousel>
@@ -129,7 +132,7 @@ export default function Home() {
            Acerca de SURECA
           </Typography>
           <Typography variant="body1" align="center" color="text.secondary" component="paragraph">
-            SURECA, lleva mas de 40 años proveyendo calidad en equipo automotriz, industrial, y de agricultura. Nuestra mision es crecer junto a usted!
+            SURECA, lleva mas de 40 años proveyendo calidad en equipo automotriz, industrial, y agrícola. Nuestra mision es crecer junto a usted!
           </Typography>
         </Container>
 
@@ -156,11 +159,11 @@ function BrandCarousel({ brands }) {
   const [startIndex, setStartIndex] = React.useState(0);
 
   const handlePrev = () => {
-    setStartIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : brands.length - 3));
+    setStartIndex((prevIndex) => ((prevIndex - 1) + brands.length) % brands.length);
   };
 
   const handleNext = () => {
-    setStartIndex((prevIndex) => (prevIndex < brands.length - 3 ? prevIndex + 1 : 0));
+    setStartIndex((prevIndex) => (prevIndex + 1) % brands.length);
   };
 
   return (
